@@ -1,12 +1,10 @@
-name: YAPF Formatting Check
-on: [push]
+name: Lint
+
+on: [push, pull_request]
+
 jobs:
-  formatting-check:
-    name: Formatting Check
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: run YAPF to test if python code is correctly formatted
-        uses: AlexanderMelde/yapf-action@master
-        with:
-          args: --verbose
+      - uses: psf/black@stable
