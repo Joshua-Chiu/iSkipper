@@ -19,7 +19,7 @@ Mode Selection
 4: Always Choose D
 5: Always Choose E
 '''
-MODE_SELECTOR = 1
+MODE_SELECTOR = 0
 PAGE_CHANGE_TIMEOUT = 30
 CLASS_START_TIMEOUT = 7200 # 2 hours
 CLASS_LENGTH_TIMEOUT = 7200 # 2 hours
@@ -100,6 +100,7 @@ print(f"{driver.title}: Joined Class, waiting for Clicker Poll")
 
 # Wait for iclicker poll
 while time.time() - start_time < CLASS_LENGTH_TIMEOUT:
+    print(f"{driver.title}: Waiting for Poll")
     try:
         timeout = CLASS_LENGTH_TIMEOUT
         element_present = expected_conditions.presence_of_element_located((By.CLASS_NAME, 'multiple-choice-buttons'))
